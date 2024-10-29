@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/tabs/home.dart';
+import 'package:flutterappfacebook/screen/tab_screen/group_screen.dart';
+import 'package:flutterappfacebook/screen/tab_screen/home_screen.dart';
+import 'package:flutterappfacebook/screen/tab_screen/menu_screen.dart';
+import 'package:flutterappfacebook/screen/tab_screen/notification_screen.dart';
+import 'package:flutterappfacebook/screen/tab_screen/profile_screen.dart';
+import 'package:flutterappfacebook/screen/tab_screen/video_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -68,11 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
         body: TabBarView(
             children: [
               HomeScreen(),
-              Icon(Icons.group),
-              Icon(Icons.person_outline),
-              Icon(Icons.ondemand_video),
-              Icon(Icons.notifications),
-              Icon(Icons.menu)
+              GroupScreen(),
+              ProfileScreen(),
+              VideoScreen(),
+              NotificationScreen(),
+              MenuScreen()
             ]
         ),
       ),
