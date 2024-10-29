@@ -75,6 +75,14 @@ flutter:
     - images/icon_love.png
     - images/icon_sad.png
     - images/icon_tym.png
+    - images/post_1.jpg
+    - images/post_2.jpg
+    - images/post_3.jpg
+    - images/post_4.jpg
+    - images/comment_post.png
+    - images/like_post.png
+    - images/message_post.png
+    - images/shared_post.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
