@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappfacebook/data/model/post_model.dart';
 import 'package:flutterappfacebook/screen/story_detail_screen.dart';
-import 'package:flutterappfacebook/widget/story_item.dart';
+import 'package:flutterappfacebook/screen/widget/post_item.dart';
+
+import '../widget/story_item.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -10,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  // List du lieu Story mau
   final List<Map<String, String>> stories = [
     {
       'imgUrl': 'images/story_1.jpg',
@@ -33,10 +37,48 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   ];
 
+  // List du lieu post mau
+  final List<PostModel> posts = [
+    PostModel(
+        userAvatar: 'images/story_1.jpg',
+        userName: 'Duy Nguyen',
+        status: 'cam thay hanh phuc',
+        time: '1h',
+        location: 'Hai Ly, Hai Hau',
+        text: 'Tet 2024 \n Ki niem dep cung cac thanh vien',
+        images: ['images/post_2.jpg'],
+        like: 'nguyen toan va 43 nguoi khac',
+        comment: 14
+    ),
+    PostModel(
+        userAvatar: 'images/story_2.jpg',
+        userName: 'Duc Toan',
+        status: 'dang cam thay vui ve',
+        time: '30 phut',
+        location: 'Hai Hau, Nam Dinh',
+        text: 'Binh Yen',
+        images: ['images/post_3.jpg'],
+        like: 'van quyet va 120 nguoi khac',
+        comment: 21
+    ),
+    PostModel(
+        userAvatar: 'images/story_3.jpg',
+        userName: 'Duy Nguyen',
+        status: 'hanh phuc, vui ve',
+        time: '2h',
+        location: 'Hai Hau, Nam Dinh',
+        text: 'Ki niem 2024',
+        images: ['images/post_1.jpg'],
+        like: 'tri toan va 180 nguoi khac',
+        comment: 51
+    )
+  ];
+
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
+    return SingleChildScrollView(
+      child: Column(
         // Viec khai bao Widget giup dam bao cac phan tu ben trong deu la Widget
         children: <Widget>[
           Container(
@@ -92,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
+          // Cac thanh trang thai ben tren Story
           Container(
             width: 360,
             height: 40,
@@ -194,6 +237,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }
             ),
+          ),
+
+        //   Post
+          ListView.builder(
+            shrinkWrap: true, //Cho ListView co lai theo noi dung
+              physics: NeverScrollableScrollPhysics(), //Tat cuon rieng
+              itemCount: posts.length,
+              itemBuilder: (context, index) {
+                return PostItem(post: posts[index]);
+              }
           )
 
 
