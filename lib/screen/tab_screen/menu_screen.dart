@@ -7,6 +7,7 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Title and Icon search
           Container(
@@ -37,7 +38,19 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
 
-          //   Two Button
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                  'Shorctus',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black87
+                ),
+              )
+          ),
+        // Cac nut chuc nang
+
         ],
       ),
     );
