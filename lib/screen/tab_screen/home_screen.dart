@@ -87,16 +87,32 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 50,
             // color: Colors.blue,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 // Icon avatar
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    IconButton(
-                        onPressed: () {}, 
-                        icon: Icon(Icons.person_pin, size: 30,)
-                    )
+                    Container(
+                      width: 30,
+                      height: 30,
+                      child: GestureDetector(
+                        onTap: () {
+
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            'images/story_1.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
+                SizedBox(width: 10,),
                 // Thanh trang tai
                 Column(
                   children: <Widget>[
