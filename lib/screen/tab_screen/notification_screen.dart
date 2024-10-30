@@ -1,7 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappfacebook/data/model/notification_model.dart';
+import 'package:flutterappfacebook/screen/widget/notification_item.dart';
 
 class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
+  final List<NotificationModel> notifications = [
+    NotificationModel(
+        imgAvatar: 'images/story_1.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '1 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/story_2.jpg',
+        userName: 'Music am nhac chua lanh',
+        content: 'Hioa minh vao vowi nhung ban nhac moi trong mua thu Ha Noi',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/story_3.jpg',
+        userName: 'Thanh pho buan',
+        content: 'Hoa minh duoi anh den vang cua mua thu Ha Noi ',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/story_4.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/post_1.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/post_2.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/post_3.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '2 hours ago'
+    ),
+    NotificationModel(
+        imgAvatar: 'images/post_4.jpg',
+        userName: 'Am nhac cua toi',
+        content: 'Tam trang mua thu voi nhung ban nhac moi',
+        time: '2 hours ago'
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +88,15 @@ class NotificationScreen extends StatelessWidget {
             ),
           ),
 
-          //   Two Button
+        //   List thong bao
+          ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: notifications.length,
+              itemBuilder: (context, index) {
+                return NotificationItem(notifications: notifications[index]);
+              }
+          )
         ],
       ),
     );
