@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappfacebook/data/model/profile_model.dart';
 import 'package:flutterappfacebook/screen/tab_screen/group_screen.dart';
 import 'package:flutterappfacebook/screen/tab_screen/home_screen.dart';
 import 'package:flutterappfacebook/screen/tab_screen/menu_screen.dart';
@@ -31,27 +32,33 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           // Icon search and message
           actions: <Widget>[
-            Container(
-              width: 26,
-              height: 26,
-              // color: Colors.grey,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.black54,
-                  width: 1
+            GestureDetector(
+                onTap: () {
+
+                },
+                child: Image.asset(
+                  'images/icon_add_home.png',
+                  width: 22,
+                  height: 22,
+                  fit: BoxFit.cover,
                 )
-              ),
-              child: Icon(Icons.add, color: Colors.black54,),
             ),
             IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.search)
             ),
-            IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.message)
-            )
+            GestureDetector(
+              onTap: () {
+
+              },
+              child: Image.asset(
+                'images/message_post.png',
+                width: 22,
+                height: 22,
+                fit: BoxFit.cover,
+              )
+            ),
+            SizedBox(width: 20,)
           ],
       
         //   Tab bar
@@ -74,7 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               HomeScreen(),
               GroupScreen(),
-              ProfileScreen(),
+              ProfileScreen(
+                profileModel: ProfileModel(
+                    backgroundUrl: 'images/post_1.jpg',
+                    avatarUrl: 'images/story_1.jpg',
+                    userName: 'Nguyễn Đức Duy',
+                    friends: 198,
+                    nameInstagram: 'ducduy.2810',
+                    address: 'Nam Định',
+                    relationship: 'Độc thân',
+                    follower: 105
+                ),
+              ),
               VideoScreen(),
               NotificationScreen(),
               MenuScreen()
