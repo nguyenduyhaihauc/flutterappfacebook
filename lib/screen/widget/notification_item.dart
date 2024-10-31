@@ -34,41 +34,26 @@ class NotificationItem extends StatelessWidget {
               // color: Colors.lightBlueAccent,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        notifications.userName,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black87
-                        ),
-                      ),
-                      Text(
-                        notifications.content,
-                        softWrap: true, //Cho phep xuong donh tu dong
-                        overflow: TextOverflow.ellipsis, //Hien thi dau cham khi vuot qua dong
-                        maxLines: 2,
-                        style: TextStyle(
-                            fontSize: 11,
-                            // fontWeight: FontWeight.w300,
-                            color: Colors.black54
-                        ),
-                      ),
-                    ],
-                  ),
-
                   Text(
-                      notifications.time,
-                      style: TextStyle(
-                        fontSize: 11,
+                    notifications.userName,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black87
+                    ),
+                  ),
+                  Text(
+                    notifications.content,
+                    softWrap: true, //Cho phep xuong donh tu dong
+                    overflow: TextOverflow.ellipsis, //Hien thi dau cham khi vuot qua dong
+                    maxLines: 2,
+                    style: TextStyle(
+                        fontSize: 12,
                         // fontWeight: FontWeight.w300,
-                        color: Colors.grey
-                      ),
-                  )
+                        color: Colors.black54
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -76,9 +61,22 @@ class NotificationItem extends StatelessWidget {
           SizedBox(width: 10,),
           Container(
             width: 30,
-            child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_horiz_rounded, size: 20,)
+            // color: Colors.red,
+            child: Column(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.more_horiz_rounded, size: 20,)
+                ),
+                Text(
+                  notifications.time,
+                  style: TextStyle(
+                      fontSize: 11,
+                      // fontWeight: FontWeight.w300,
+                      color: Colors.grey
+                  ),
+                )
+              ],
             ),
           )
         ],
