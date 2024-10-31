@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
               GroupScreen(),
               ProfileScreen(
                 profileModel: ProfileModel(
-                    backgroundUrl: 'images/post_1.jpg',
+                    backgroundUrl: 'images/post_2.jpg',
                     avatarUrl: 'images/story_1.jpg',
                     userName: 'Nguyễn Đức Duy',
                     friends: 198,
