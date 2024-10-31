@@ -147,7 +147,7 @@ class PostItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 10, bottom: 5),
             // color: Colors.red,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
                   onTap: () {
