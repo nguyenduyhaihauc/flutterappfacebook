@@ -51,6 +51,17 @@ class _HomeScreenState extends State<HomeScreen> {
         comment: 14
     ),
     PostModel(
+        userAvatar: 'images/icon_vtv24.png',
+        userName: 'VTV24',
+        status: 'đang cảm thấy bức xúc',
+        time: '30 phut',
+        location: 'Hà Nội',
+        text: 'Cảnh báo tình trạng giới trẻ chơi đồ quá liều',
+        images: ['images/anh_toan.jpg'],
+        like: 'van quyet va 1200 nguoi khac',
+        comment: 283
+    ),
+    PostModel(
         userAvatar: 'images/story_2.jpg',
         userName: 'Duc Toan',
         status: 'dang cam thay vui ve',
