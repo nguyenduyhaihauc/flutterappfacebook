@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutterappfacebook/data/model/video_model.dart';
 import 'package:video_player/video_player.dart';
@@ -23,6 +25,9 @@ class _VideoItemState extends State<VideoItem> {
   bool _isPlaying = false;
 
   bool _isExpanded = false;
+  
+  bool _showControls = true;
+  Timer? _hidePlayPauseTimer;
 
   @override
   void initState() {
@@ -37,26 +42,50 @@ class _VideoItemState extends State<VideoItem> {
       }).catchError((error) {
         print('Error initializing video: $error');
       });
+    _controller.addListener(() {
+      if (mounted) {
+        setState(() {
+
+        });//Cap nhat trang thai cho thanh tien trinh
+      }
+    });
   }
 
   @override
   void dispose() {
+    _hidePlayPauseTimer?.cancel(); //
     _controller.dispose();
     super.dispose();
   }
 
+  // Hanh dong khi nhan nut
   void _togglePlayPause() {
     setState(() {
       _isPlaying ? _controller.pause() : _controller.play();
       _isPlaying = !_isPlaying;
+      _showControls = true; //Hien thi nut khi nguoi dung nham
+      _startHidePlayPauseTimer(); //Dat lai bo dem thoi gian de an
     });
+  }
+  
+  void _startHidePlayPauseTimer() {
+    _hidePlayPauseTimer?.cancel(); //Huy bo dem hien tai
+    _hidePlayPauseTimer = Timer(Duration(seconds: 3), () {
+      setState(() {
+        _showControls = false; //An sau 4 giay
+      });
+    });
+  }
+
+  void _onSlideChanged(double value) {
+    _controller.seekTo(Duration(seconds: value.toInt()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.only(left: 10, bottom: 10, right: 10),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,9 +205,21 @@ class _VideoItemState extends State<VideoItem> {
           Stack(
             children: [
               if (_controller.value.isInitialized)
-                AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
+                // AspectRatio(
+                //   aspectRatio: _controller.value.aspectRatio,
+                //   child: VideoPlayer(_controller),
+                // )
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _showControls = true;
+                      _startHidePlayPauseTimer(); // Đặt lại bộ đếm thời gian khi người dùng tương tác
+                    });
+                  },
+                  child: SizedBox(
+                    height: 200, // Chiều cao cố định
+                    child: VideoPlayer(_controller),
+                  ),
                 )
               else
                 Container(
@@ -187,6 +228,7 @@ class _VideoItemState extends State<VideoItem> {
                   child: Center(child: CircularProgressIndicator()),
                 ),
               // Nut tam dung va phat tiep
+              if (_showControls)
               Positioned.fill(
                 child: GestureDetector(
                   onTap: _togglePlayPause,
@@ -199,6 +241,26 @@ class _VideoItemState extends State<VideoItem> {
                   ),
                 ),
               ),
+            //   Thanh thoi gian
+              if (_showControls)
+                Positioned(
+                  bottom: 3,
+                    left: 1,
+                    right: 1,
+                    child: Slider(
+                      min: 0,
+                        max: _controller.value.duration.inSeconds.toDouble(),
+                        value: _controller.value.position.inSeconds.toDouble().clamp(
+                            0, _controller.value.duration.inSeconds.toDouble()),
+                        onChanged: (value) {
+                          _onSlideChanged(value);
+                          _showControls = true; //Hien thi khi nguoi dung click
+                          _startHidePlayPauseTimer();//An sau 4s
+                        },
+                      activeColor: Colors.white,
+                      inactiveColor: Colors.white54,
+                    )
+                )
             ],
           ),
           // Thich, binh luan va chia se
