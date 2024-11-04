@@ -9,7 +9,7 @@ class NotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 66,
+      height: 80,
       // color: Colors.greenAccent,
       margin: EdgeInsets.only(bottom: 10, left: 15, right: 15),
       child: Row(
@@ -18,8 +18,8 @@ class NotificationItem extends StatelessWidget {
         children: [
           // Avatar
           Container(
-            width: 60,
-            height: 60,
+            width: 75,
+            height: 75,
             decoration: BoxDecoration(
               shape: BoxShape.circle
             ),
@@ -29,16 +29,18 @@ class NotificationItem extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10,),
+          // Username, content
           Expanded(
             child: Container(
               // color: Colors.lightBlueAccent,
+              margin: EdgeInsets.only(top: 3),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     notifications.userName,
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Colors.black87
                     ),
@@ -49,8 +51,7 @@ class NotificationItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis, //Hien thi dau cham khi vuot qua dong
                     maxLines: 2,
                     style: TextStyle(
-                        fontSize: 12,
-                        // fontWeight: FontWeight.w300,
+                        fontSize: 13,
                         color: Colors.black54
                     ),
                   ),
@@ -59,6 +60,7 @@ class NotificationItem extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10,),
+          // Icon more va thowi gian
           Container(
             width: 30,
             // color: Colors.red,
@@ -66,13 +68,12 @@ class NotificationItem extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.more_horiz_rounded, size: 20,)
+                    icon: Icon(Icons.more_horiz_rounded, size: 22,)
                 ),
                 Text(
                   notifications.time,
                   style: TextStyle(
-                      fontSize: 11,
-                      // fontWeight: FontWeight.w300,
+                      fontSize: 12,
                       color: Colors.grey
                   ),
                 )
