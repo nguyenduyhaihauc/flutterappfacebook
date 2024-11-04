@@ -90,6 +90,22 @@ flutter:
     - images/icon_instagram.png
     - images/icon_network.png
     - images/icon_dot.png
+    - images/anh_toan.jpg
+    - images/icon_vtv24.png
+    - images/icon_avatar.png
+    - images/icon_box.png
+    - images/icon_dating.png
+    - images/icon_event.png
+    - images/icon_feed.png
+    - images/icon_friends.png
+    - images/icon_group.png
+    - images/icon_marketplace.png
+    - images/icon_play_game.png
+    - images/icon_reels.png
+    - images/icon_saved.png
+    - images/icon_tag.png
+    - images/icon_time_clock.png
+    - images/icon_video.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
