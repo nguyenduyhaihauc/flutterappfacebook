@@ -36,6 +36,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   video_player: ^2.9.2
+  get: ^4.6.6
+  scroll_wheel_date_picker: ^0.0.2+1
 
 
 dev_dependencies:
@@ -106,6 +108,20 @@ flutter:
     - images/icon_tag.png
     - images/icon_time_clock.png
     - images/icon_video.png
+    - images/icon_center.png
+    - images/icon_link.png
+    - images/icon_mailbox.png
+    - images/icon_person.png
+    - images/icon_privacy.png
+    - images/icon_question.png
+    - images/icon_security.png
+    - images/icon_setting.png
+    - images/icon_term.png
+    - images/icon_warning.png
+    - images/icon_facebook.png
+    - images/icon_meta.png
+    - images/intro_register.png
+    - images/bg_login.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
