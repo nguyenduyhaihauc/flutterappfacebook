@@ -1,46 +1,51 @@
 import 'package:flutter/material.dart';
 
-class TextFieldWidget extends StatefulWidget {
+class TextFieldPass extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
-  final TextStyle? labelStyle;
   final TextInputType? keyboardType;
+  final TextStyle? labelStyle;
 
-  const TextFieldWidget({
-    Key? key,
+  TextFieldPass({
     required this.controller,
     required this.labelText,
-    this.labelStyle,
-    this.keyboardType
-  }): super(key: key);
+    this.keyboardType,
+    this.labelStyle
+  });
 
   @override
-  State<TextFieldWidget> createState() => _TextFieldWidgetState();
+  State<TextFieldPass> createState() => _TextFieldPassState();
 }
 
-class _TextFieldWidgetState extends State<TextFieldWidget> {
+class _TextFieldPassState extends State<TextFieldPass> {
+  bool _isObscure = true;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
+      obscureText: _isObscure,
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: widget.labelStyle ??
-          const TextStyle(
+          TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.grey
           ),
-        suffixIcon: widget.controller.text.isNotEmpty
-          ? IconButton(
+        suffixIcon: IconButton(
             onPressed: () {
               setState(() {
-                widget.controller.clear();
+                _isObscure = !_isObscure;
               });
             },
-            icon: Icon(Icons.clear, size: 18, color: Colors.grey,)
-        ) : null
+            icon: Icon(
+              _isObscure ? Icons.visibility_off : Icons.visibility,
+              size: 18,
+              color: Colors.grey,
+            )
+        )
       ),
       onChanged: (value) {
         setState(() {

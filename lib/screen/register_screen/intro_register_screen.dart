@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/fullname_register_screen.dart';
+import 'package:flutterappfacebook/screen/register_screen/fullname_register_screen.dart';
 import 'package:flutterappfacebook/screen/widget/appbar_widget.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
 
@@ -41,7 +41,7 @@ class IntroRegisterScreen extends StatelessWidget {
             ButtonWidget(
                 text: 'Next',
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => FullNameRegisterScreen()

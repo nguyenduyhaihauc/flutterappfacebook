@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/login_screen.dart';
+import 'package:flutterappfacebook/screen/login_screen/login_screen.dart';
 import 'package:flutterappfacebook/screen/my_home_page.dart';
 import 'package:flutterappfacebook/screen/widget/appbar_widget.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
@@ -66,8 +66,8 @@ class FinishSignupScreen extends StatelessWidget {
             ButtonWidget(
                 text: 'Sign up',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => MyHomePage()
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) => LoginScreen()
                   ));
                 }
             ),

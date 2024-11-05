@@ -122,6 +122,7 @@ flutter:
     - images/icon_meta.png
     - images/intro_register.png
     - images/bg_login.png
+    - images/icon_facebook_login.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

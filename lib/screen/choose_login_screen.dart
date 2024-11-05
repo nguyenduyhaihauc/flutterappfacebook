@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/intro_register_screen.dart';
-import 'package:flutterappfacebook/screen/login_screen.dart';
+import 'package:flutterappfacebook/screen/register_screen/intro_register_screen.dart';
+import 'package:flutterappfacebook/screen/login_screen/login_screen.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
 import 'package:flutterappfacebook/utils/colors_resource.dart';
 
@@ -30,7 +30,7 @@ class ChooseLoginScreen extends StatelessWidget {
                 // color: Colors.red,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
+                    Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => LoginScreen()
                     ));
                   },
@@ -83,7 +83,7 @@ class ChooseLoginScreen extends StatelessWidget {
               ButtonWidget(
                   text: 'Create New Facebook Account',
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => IntroRegisterScreen()

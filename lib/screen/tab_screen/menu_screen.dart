@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterappfacebook/data/model/dropdown_model.dart';
+import 'package:flutterappfacebook/screen/login_screen/login_screen.dart';
 import 'package:flutterappfacebook/screen/widget/dropdown_widget.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -256,7 +257,9 @@ class _MenuScreenState extends State<MenuScreen> {
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: ElevatedButton(
                   onPressed: () {
-
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) => LoginScreen()
+                    ));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey[200],

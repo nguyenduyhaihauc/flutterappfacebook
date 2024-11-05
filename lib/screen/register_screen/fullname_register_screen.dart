@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/birthday_register_screen.dart';
+import 'package:flutterappfacebook/screen/register_screen/birthday_register_screen.dart';
 import 'package:flutterappfacebook/screen/widget/appbar_widget.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
 
@@ -108,7 +108,7 @@ class _FullNameRegisterScreenState extends State<FullNameRegisterScreen> {
             ButtonWidget(
                 text: 'Next',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                       builder: (context) => BirthdayRegisterScreen()
                   ));
                 }

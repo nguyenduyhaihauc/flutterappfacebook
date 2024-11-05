@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/password_screen.dart';
+import 'package:flutterappfacebook/screen/register_screen/password_screen.dart';
 import 'package:flutterappfacebook/screen/widget/appbar_widget.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
 import 'package:flutterappfacebook/screen/widget/textfield_widget.dart';
@@ -51,7 +51,7 @@ class _MobileNumberScreenState extends State<MobileNumberScreen> {
             ButtonWidget(
                 text: 'Next',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                       builder: (context) => PasswordScreen()
                   ));
                 }

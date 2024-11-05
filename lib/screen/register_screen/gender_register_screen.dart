@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterappfacebook/screen/mobile_number_screen.dart';
+import 'package:flutterappfacebook/screen/register_screen/mobile_number_screen.dart';
 import 'package:flutterappfacebook/screen/widget/appbar_widget.dart';
 import 'package:flutterappfacebook/screen/widget/button_widget.dart';
 
@@ -103,7 +103,7 @@ class _GenderRegisterScreenState extends State<GenderRegisterScreen> {
             ButtonWidget(
                 text: 'Next',
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                       builder: (context) => MobileNumberScreen()
                   ));
                 }
