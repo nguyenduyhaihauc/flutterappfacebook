@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterappfacebook/data/model/dropdown_model.dart';
+import 'package:flutterappfacebook/screen/widget/dropdown_widget.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -164,6 +166,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 }
             ),
           ),
+          // Nut xem them
           SizedBox(
             width: double.infinity,
             child: Container(
@@ -184,6 +187,90 @@ class _MenuScreenState extends State<MenuScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 35),
                   ),
                   child: Text(showAll ? 'Ẩn bớt' : 'Xem thêm', style: TextStyle(fontWeight: FontWeight.w600),)
+              ),
+            ),
+          ),
+
+          Divider(color: Colors.grey[200],),
+        //   Tro giup va ho tro
+          DropdownWidget(
+              title: "Trợ giúp & hỗ trợ",
+              image: 'images/icon_question.png',
+              items: [
+                DropdownModel(
+                    image: 'images/icon_center.png',
+                    text: 'Trung tâm hỗ trợ',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_mailbox.png',
+                    text: 'Hộp thư hỗ trợ',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_warning.png',
+                    text: 'Báo cá sự cố',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_security.png',
+                    text: 'An toàn',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_term.png',
+                    text: 'Điều khoản & chính sách',
+                    onTap: () {}
+                )
+              ]
+          ),
+
+          Divider(color: Colors.grey[200],),
+        //   Cai dat va quyen rieng tu
+          DropdownWidget(
+              title: 'Cài đặt & quyền riêng tư',
+              image: 'images/icon_setting.png',
+              items: [
+                DropdownModel(
+                    image: 'images/icon_person.png',
+                    text: 'Cài đặt',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_privacy.png',
+                    text: 'Trung tâm quyền riêng tư',
+                    onTap: () {}
+                ),
+                DropdownModel(
+                    image: 'images/icon_link.png',
+                    text: 'Lịch sử và liên kết',
+                    onTap: () {}
+                )
+              ]
+          ),
+
+        //   Nut dang xuat
+          SizedBox(
+            width: double.infinity,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: ElevatedButton(
+                  onPressed: () {
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey[200],
+                    foregroundColor: Colors.black87,
+                    // elevation: 5,// Do bong
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6)
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 35),
+                  ),
+                  child: Text('Đăng xuất', style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87
+                  ),)
               ),
             ),
           ),
